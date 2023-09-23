@@ -1,5 +1,5 @@
 import {
-    Box, Flex, Link, Tabs, TabList, Tab, Text, Icon
+    Flex, Link, Icon
 } from '@chakra-ui/react'
 import { Link as RouterLink, useLocation } from 'react-router-dom'
 import { ReactComponent as GoBackIcon } from '@/shared/assets/icons/GoBackIcon.svg'
