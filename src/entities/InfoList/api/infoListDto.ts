@@ -1,37 +1,37 @@
-import { InfoList, InfoRow } from "../model/types/infoListTypes"
+import { type InfoList, type InfoRow } from '../model/types/infoListTypes'
 
-export type DeleteRowReqDto = {
+export interface DeleteRowReqDto {
     listId: number
     rowId: number
 }
 
-export type DeleteRowResDto = {
+export interface DeleteRowResDto {
     changed: InfoList
     current: InfoRow
 }
 
-export type UpdateRowReqDto = {
+export interface UpdateRowReqDto {
     listId: number
     rowId: number
     newRow: InfoRow
 }
 
-export type UpdateRowResDto = {
+export interface UpdateRowResDto {
     changed: InfoList
     current: InfoRow
 }
 
-export type CreateRowReqDto = {
-    listId: number,
+export interface CreateRowReqDto {
+    listId: number
     parentId: number
 }
 
-export type CreateRowResDto = {
+export interface CreateRowResDto {
     changed: InfoList
     current: InfoRow
 }
 
-export type GetInfoListReqDto = {
+export interface GetInfoListReqDto {
     listId: number
 }
 

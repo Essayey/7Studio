@@ -1,12 +1,11 @@
-import { InfoRow, useUpdateRowMutation } from "@/entities/InfoList"
-import { selectCurrentListId } from "@/entities/InfoList/model/selectors/selectCurrentListId"
-import { Input, Td } from "@chakra-ui/react"
-import { useForm } from "react-hook-form"
-import { useHotkeys } from "react-hotkeys-hook"
-import { useSelector } from "react-redux"
+import { Input, Td } from '@chakra-ui/react'
+import { useForm } from 'react-hook-form'
+import { useHotkeys } from 'react-hotkeys-hook'
+import { useSelector } from 'react-redux'
+import { selectCurrentListId } from '@/entities/InfoList/model/selectors/selectCurrentListId'
+import { type InfoRow, useUpdateRowMutation } from '@/entities/InfoList'
 
-
-type EditRowProps = {
+interface EditRowProps {
     row: InfoRow
     closeForm: () => void
 }
@@ -18,7 +17,7 @@ export const EditRow = (props: EditRowProps) => {
     const listId = useSelector(selectCurrentListId)
 
     const { handleSubmit, register, reset } = useForm({
-        defaultValues: row,
+        defaultValues: row
 
     })
 
@@ -28,33 +27,33 @@ export const EditRow = (props: EditRowProps) => {
         reset()
     }
 
-    useHotkeys('enter', () => handleSubmit(onSubmit)())
+    useHotkeys('enter', async () => { await handleSubmit(onSubmit)() })
 
     return (
         <>
             <Td>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Input {...register('rowName')} autoFocus variant={'text'} />
+                    <Input {...register('rowName')} autoFocus variant="text" />
                 </form>
             </Td>
             <Td>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Input {...register('salary')} variant={'text'} />
+                    <Input {...register('salary')} variant="text" />
                 </form>
             </Td>
             <Td>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Input {...register('equipmentCosts')} variant={'text'} />
+                    <Input {...register('equipmentCosts')} variant="text" />
                 </form>
             </Td>
             <Td>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Input {...register('overheads')} variant={'text'} />
+                    <Input {...register('overheads')} variant="text" />
                 </form>
             </Td>
             <Td>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Input {...register('estimatedProfit')} variant={'text'} />
+                    <Input {...register('estimatedProfit')} variant="text" />
                 </form>
             </Td>
         </>

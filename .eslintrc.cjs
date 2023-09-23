@@ -7,7 +7,7 @@ module.exports = {
   globals: {
     __IS_DEV__: 'readonly'
   },
-  extends: ['plugin:react/recommended', 'standard-with-typescript', 'airbnb', 'plugin:storybook/recommended'],
+  extends: ['plugin:react/recommended', 'standard-with-typescript', 'airbnb'],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',

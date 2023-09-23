@@ -1,8 +1,7 @@
-import { InfoRow } from "@/entities/InfoList"
-import { Td, Text } from "@chakra-ui/react"
+import { Td, Text } from '@chakra-ui/react'
+import { type InfoRow } from '@/entities/InfoList'
 
-
-type ViewRowProps = {
+interface ViewRowProps {
     row: InfoRow
 }
 

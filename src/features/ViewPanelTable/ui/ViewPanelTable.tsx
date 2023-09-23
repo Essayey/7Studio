@@ -6,15 +6,14 @@ import {
     Th,
     Text,
     Box
-} from "@chakra-ui/react"
-import { useGetInfoListQuery } from "@/entities/InfoList";
-import { useSelector } from "react-redux";
-import { selectCurrentListId } from "@/entities/InfoList/model/selectors/selectCurrentListId";
-import { ViewPanelTableRows } from "./ViewPanelTableRows"
+} from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
 import { Xwrapper, useXarrow } from 'react-xarrows'
-import { DrawLines } from "./DrawLines";
 import { useResizeDetector } from 'react-resize-detector'
-
+import { useGetInfoListQuery } from '@/entities/InfoList'
+import { selectCurrentListId } from '@/entities/InfoList/model/selectors/selectCurrentListId'
+import { ViewPanelTableRows } from './ViewPanelTableRows'
+import { DrawLines } from './DrawLines'
 
 export const ViewPanelTable = () => {
     const listId = useSelector(selectCurrentListId)
@@ -30,31 +29,31 @@ export const ViewPanelTable = () => {
             <Box
                 ref={ref}
                 px={3}
-                height={'calc(100vh - 100px)'}
-                overflow={'auto'}
-                position={'relative'}
+                height="calc(100vh - 100px)"
+                overflow="auto"
+                position="relative"
                 onScroll={updateXarrow}
             >
                 <Table variant="simple">
                     <Thead>
                         <Tr>
-                            <Th width={'10%'}>
-                                <Text fontSize={'sm'} color='brand.secondaryText'>Уровень</Text>
+                            <Th width="10%">
+                                <Text fontSize="sm" color="brand.secondaryText">Уровень</Text>
                             </Th>
-                            <Th width={'30%'}>
-                                <Text fontSize={'sm'} color='brand.secondaryText'>Наименование работ</Text>
+                            <Th width="30%">
+                                <Text fontSize="sm" color="brand.secondaryText">Наименование работ</Text>
                             </Th>
-                            <Th width={'15%'}>
-                                <Text fontSize={'sm'} color='brand.secondaryText'>Основная  з/п</Text>
+                            <Th width="15%">
+                                <Text fontSize="sm" color="brand.secondaryText">Основная  з/п</Text>
                             </Th>
-                            <Th width={'15%'}>
-                                <Text fontSize={'sm'} color='brand.secondaryText'>Оборудование</Text>
+                            <Th width="15%">
+                                <Text fontSize="sm" color="brand.secondaryText">Оборудование</Text>
                             </Th>
-                            <Th width={'15%'}>
-                                <Text fontSize={'sm'} color='brand.secondaryText'>Накладные расходы</Text>
+                            <Th width="15%">
+                                <Text fontSize="sm" color="brand.secondaryText">Накладные расходы</Text>
                             </Th>
-                            <Th width={'15%'}>
-                                <Text fontSize={'sm'} color='brand.secondaryText'>Сметная прибыль</Text>
+                            <Th width="15%">
+                                <Text fontSize="sm" color="brand.secondaryText">Сметная прибыль</Text>
                             </Th>
                         </Tr>
                     </Thead>

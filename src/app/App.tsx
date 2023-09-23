@@ -1,13 +1,11 @@
-import { Outlet, useRoutes } from "react-router-dom";
-import { AdminNavbar } from "../widgets/AdminNavbar";
-import { Box } from "@chakra-ui/react";
-import { ViewSidebar } from "@/widgets/ViewSidebar";
-import { ViewPanel } from "@/widgets/ViewPanel";
+import { Outlet, useRoutes } from 'react-router-dom'
+import { AdminNavbar } from '../widgets/AdminNavbar'
+import { ViewPage } from '@/pages/ViewPage'
 
 export const App = () => {
     const element = useRoutes([
         {
-            path: "/",
+            path: '/',
             element: (
                 <>
                     <AdminNavbar />
@@ -16,25 +14,16 @@ export const App = () => {
             ),
             children: [
                 {
-                    path: "view",
-                    element: (
-                        <Box
-                            height={'calc(100vh - 44px)'}
-                            display={'flex'}
-                        >
-                            <ViewSidebar />
-                            <ViewPanel />
-                        </Box>
-                    )
+                    path: 'view',
+                    element: <ViewPage />
                 },
                 {
-                    path: "management",
+                    path: 'management',
                     element: <div>Management</div>
-                },
-            ],
-        },
-    ]);
-
+                }
+            ]
+        }
+    ])
 
     return element
 }

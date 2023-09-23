@@ -1,7 +1,7 @@
-import { InfoListSchema } from "@/entities/InfoList";
-import { api } from "@/shared/api/api.common";
+import { type InfoListSchema } from '@/entities/InfoList'
+import { type api } from '@/shared/api/api.common'
 
-export type StateSchema = {
+export interface StateSchema {
     [api.reducerPath]: ReturnType<typeof api.reducer>
     infoList: InfoListSchema
 }

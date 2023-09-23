@@ -1,5 +1,5 @@
-import { InfoListSchema } from '../types/infoListTypes';
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { type InfoListSchema } from '../types/infoListTypes'
 
 const initialState: InfoListSchema = {
     currentListId: 62533
@@ -12,7 +12,7 @@ const InfoListSlice = createSlice({
         setCurrentListId(state, action: PayloadAction<{ id: number }>) {
             state.currentListId = action.payload.id
         }
-    },
+    }
 
 })
 

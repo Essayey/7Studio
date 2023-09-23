@@ -1,4 +1,4 @@
-export type { InfoListSchema } from './model/types/infoListTypes';
+export type { InfoListSchema } from './model/types/infoListTypes'
 export { infoListActions, infoListReducer } from './model/slice/InfoListSlice'
 export {
     useGetInfoListQuery,

@@ -1,16 +1,16 @@
-import { emptyRow } from './../lib/emptyRow'
-import { api } from "@/shared/api/api.common"
+import { emptyRow } from '../lib/emptyRow'
+import { api } from '@/shared/api/api.common'
 import {
-    CreateRowReqDto,
-    CreateRowResDto,
-    DeleteRowReqDto,
-    DeleteRowResDto,
-    GetInfoListReqDto,
-    GetInfoListResDto,
-    UpdateRowReqDto,
-    UpdateRowResDto
-} from "./infoListDto"
-import { InfoList } from "../model/types/infoListTypes"
+    type CreateRowReqDto,
+    type CreateRowResDto,
+    type DeleteRowReqDto,
+    type DeleteRowResDto,
+    type GetInfoListReqDto,
+    type GetInfoListResDto,
+    type UpdateRowReqDto,
+    type UpdateRowResDto
+} from './infoListDto'
+import { type InfoList } from '../model/types/infoListTypes'
 
 export const infoListApi = api.injectEndpoints({
     endpoints: (builder) => ({
@@ -25,7 +25,7 @@ export const infoListApi = api.injectEndpoints({
                         const findRow = (list: InfoList) => {
                             for (const row of list) {
                                 if (row.id === arg.rowId) {
-                                    const index = list.findIndex(row => row.id === arg.rowId)
+                                    const index = list.findIndex((row) => row.id === arg.rowId)
                                     list.splice(index, 1)
                                     return
                                 }
@@ -57,7 +57,7 @@ export const infoListApi = api.injectEndpoints({
                                     Object.assign(row, arg.newRow)
                                     return
                                 }
-                                findRow(row.child);
+                                findRow(row.child)
                             }
                         }
                         findRow(draft)
@@ -68,7 +68,7 @@ export const infoListApi = api.injectEndpoints({
                 } catch {
                     patch.undo()
                 }
-            },
+            }
         }),
         createRow: builder.mutation<CreateRowResDto, CreateRowReqDto>({
             query: (body) => ({
@@ -100,8 +100,8 @@ export const infoListApi = api.injectEndpoints({
             query: (body) => ({
                 url: `/outlay-rows/entity/${body.listId}/row/list`,
                 method: 'GET'
-            }),
-        }),
+            })
+        })
     })
 })
 

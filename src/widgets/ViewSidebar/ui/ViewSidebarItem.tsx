@@ -1,9 +1,9 @@
-import { Box, Icon, Text } from "@chakra-ui/react"
+import { Box, Icon, Text } from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
 import { ReactComponent as AccordionItemIcon } from '@/shared/assets/icons/AccordionItem.svg'
-import { useSelector } from "react-redux"
-import { selectCurrentListId } from "@/entities/InfoList/model/selectors/selectCurrentListId"
+import { selectCurrentListId } from '@/entities/InfoList/model/selectors/selectCurrentListId'
 
-type ViewSidebarItemProps = {
+interface ViewSidebarItemProps {
     id: number
 }
 
@@ -17,17 +17,17 @@ export const ViewSidebarItem = (props: ViewSidebarItemProps) => {
 
     return (
         <Box
-            height={'32px'}
-            width={'100%'}
+            height="32px"
+            width="100%"
             display="flex"
             alignItems="center"
             bg={id === currentListId ? '#A1A1AA' : 'inherit'}
-            cursor={'pointer'}
+            cursor="pointer"
             onClick={onClick}
             paddingLeft={2}
         >
             <Icon as={AccordionItemIcon} marginRight="4" />
-            <Text fontSize={'sm'}>
+            <Text fontSize="sm">
                 Lorem, ipsum.
             </Text>
         </Box>

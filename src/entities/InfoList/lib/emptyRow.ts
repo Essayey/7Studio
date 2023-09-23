@@ -1,4 +1,4 @@
-import { InfoRow } from "../model/types/infoListTypes";
+import { type InfoRow } from '../model/types/infoListTypes'
 
 export const emptyRow: Omit<InfoRow, 'child' | 'id' | 'total'> & { parentId: number | null } = {
     equipmentCosts: 0,
@@ -9,7 +9,7 @@ export const emptyRow: Omit<InfoRow, 'child' | 'id' | 'total'> & { parentId: num
     parentId: null,
     mimExploitation: 0,
     overheads: 0,
-    rowName: "string",
+    rowName: 'string',
     salary: 0,
-    supportCosts: 0,
-} 
+    supportCosts: 0
+}

@@ -1,15 +1,15 @@
-import { InfoList } from "@/entities/InfoList"
-import Xarrow from "react-xarrows"
+import Xarrow from 'react-xarrows'
+import { type InfoList } from '@/entities/InfoList'
 
-type DrawLinesProps = {
+interface DrawLinesProps {
     list: InfoList
 }
 
 export const DrawLines = (props: DrawLinesProps) => {
     const { list } = props
 
-    const transformInfoListToPairs = (infoList: InfoList, parentId: number | null = null): [number, number | null][] => {
-        const pairs: [number, number | null][] = []
+    const transformInfoListToPairs = (infoList: InfoList, parentId: number | null = null): Array<[number, number | null]> => {
+        const pairs: Array<[number, number | null]> = []
 
         for (const infoRow of infoList) {
             pairs.push([infoRow.id, parentId])
@@ -33,14 +33,14 @@ export const DrawLines = (props: DrawLinesProps) => {
                             key={end}
                             start={String(start)}
                             end={String(end)}
-                            path={"grid"}
-                            startAnchor={"bottom"}
-                            endAnchor={"left"}
+                            path="grid"
+                            startAnchor="bottom"
+                            endAnchor="left"
                             showHead={false}
                             zIndex={-1}
-                        />)
-                }
-                )
+                        />
+                    )
+                })
             }
         </>
     )

@@ -1,7 +1,8 @@
-import { Accordion, AccordionItem, AccordionButton, AccordionPanel, Box, Icon, Text } from "@chakra-ui/react"
+import {
+    Accordion, AccordionItem, AccordionButton, AccordionPanel, Box, Text
+} from '@chakra-ui/react'
 import { ReactComponent as AccordionIcon } from '@/shared/assets/icons/AccordionIcon.svg'
-import { ViewSidebarItem } from "./ViewSidebarItem"
-
+import { ViewSidebarItem } from './ViewSidebarItem'
 
 export const ViewSidebarAccordion = () => {
     return (
@@ -9,10 +10,10 @@ export const ViewSidebarAccordion = () => {
             <AccordionItem>
                 <AccordionButton>
                     <Box flex="1" textAlign="left">
-                        <Text fontSize='sm'>
+                        <Text fontSize="sm">
                             Название проекта
                         </Text>
-                        <Text fontSize='xs'>
+                        <Text fontSize="xs">
                             Аббревиатура
                         </Text>
                     </Box>
@@ -27,6 +28,6 @@ export const ViewSidebarAccordion = () => {
                 </AccordionPanel>
 
             </AccordionItem>
-        </Accordion >
+        </Accordion>
     )
 }

@@ -1,16 +1,17 @@
-import { InfoList } from "@/entities/InfoList";
-import { ViewPanelTableRow } from "./ViewPanelTableRow";
-import React from "react";
+import React from 'react'
+import { type InfoList } from '@/entities/InfoList'
+import { ViewPanelTableRow } from './ViewPanelTableRow'
 
-
-type ViewPanelTableRowsProps = {
-    rows: InfoList,
+interface ViewPanelTableRowsProps {
+    rows: InfoList
     rowLevel: number
 }
 
 export const ViewPanelTableRows = (props: ViewPanelTableRowsProps) => {
-    const { rowLevel,
-        rows } = props
+    const {
+        rowLevel,
+        rows
+    } = props
 
     return rows.map((row) => (
         <React.Fragment key={row.id}>
