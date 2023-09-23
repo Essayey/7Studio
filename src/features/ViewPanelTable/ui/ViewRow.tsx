@@ -17,22 +17,22 @@ export const ViewRow = (props: ViewRowProps) => {
             </Td>
             <Td>
                 <Text fontSize="sm" color="brand.primaryText">
-                    {row.salary}
+                    {row.salary.toLocaleString('ru-RU')}
                 </Text>
             </Td>
             <Td>
                 <Text fontSize="sm" color="brand.primaryText">
-                    {row.equipmentCosts}
+                    {row.equipmentCosts.toLocaleString('ru-RU')}
                 </Text>
             </Td>
             <Td>
                 <Text fontSize="sm" color="brand.primaryText">
-                    {row.overheads}
+                    {row.overheads.toLocaleString('ru-RU')}
                 </Text>
             </Td>
             <Td>
                 <Text fontSize="sm" color="brand.primaryText">
-                    {row.estimatedProfit}
+                    {row.estimatedProfit.toLocaleString('ru-RU')}
                 </Text>
             </Td>
         </>
