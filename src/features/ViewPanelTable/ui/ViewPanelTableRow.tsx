@@ -72,7 +72,7 @@ export const ViewPanelTableRow = (props: ViewPanelTableRowProps) => {
                             borderLeft: '1px solid #C6C6C6',
                             left: '-7px',
                             bottom: '17px'
-                        } : null}
+                        } : undefined}
                     >
                         <Box
                             onMouseEnter={isEditing ? undefined : () => { setIsDeleteButtonRendering(true) }}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { getChildLength, isDeepChild, type InfoList } from '@/entities/InfoList'
 import { ViewPanelTableRow } from './ViewPanelTableRow'
 

@@ -57,7 +57,7 @@ export const CreateRow = (props: CreateRowProps) => {
                             width="46px"
                             height="38px"
 
-                            _after={root ? {
+                            _after={{
                                 zIndex: 0,
                                 content: '""',
                                 position: 'absolute',
@@ -67,7 +67,7 @@ export const CreateRow = (props: CreateRowProps) => {
                                 borderLeft: '1px solid #C6C6C6',
                                 left: '-7px',
                                 bottom: '17px'
-                            } : null}
+                            }}
                         />
                     )
                 }
