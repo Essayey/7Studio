@@ -7,7 +7,6 @@ export const ViewPanel = () => {
         <Box
             width="100%"
             height="calc(100vh - 44px)"
-            flexGrow={1}
             minWidth={0}
         >
             <ViewPanelHeader />
