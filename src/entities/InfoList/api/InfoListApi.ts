@@ -10,7 +10,7 @@ import {
     type UpdateRowReqDto,
     type UpdateRowResDto
 } from './infoListDto'
-import { type InfoList } from '../model/types/infoListTypes'
+import { type InfoRow, type InfoList } from '../model/types/infoListTypes'
 
 export const infoListApi = api.injectEndpoints({
     endpoints: (builder) => ({
@@ -49,48 +49,63 @@ export const infoListApi = api.injectEndpoints({
                 body: body.newRow
             }),
             async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-                const patch = dispatch(
-                    infoListApi.util.updateQueryData('getInfoList', { listId: arg.listId }, (draft) => {
-                        const findRow = (list: InfoList) => {
-                            for (const row of list) {
-                                if (row.id === arg.rowId) {
-                                    Object.assign(row, arg.newRow)
-                                    return
-                                }
-                                findRow(row.child)
-                            }
-                        }
-                        findRow(draft)
-                    })
-                )
                 try {
-                    await queryFulfilled
-                } catch {
-                    patch.undo()
-                }
+                    const { data } = await queryFulfilled
+                    dispatch(
+                        infoListApi.util.updateQueryData('getInfoList', { listId: arg.listId }, (draft) => {
+                            const findRow = (list: InfoList, newRow: InfoRow) => {
+                                for (const row of list) {
+                                    if (row.id === newRow.id) {
+                                        Object.assign(row, { ...newRow, child: row.child })
+                                        return
+                                    }
+                                    findRow(row.child, newRow)
+                                }
+                            }
+                            data.changed.forEach((newRow) => { findRow(draft, newRow) })
+                            findRow(draft, data.current)
+                        })
+                    )
+                } catch { }
             }
         }),
         createRow: builder.mutation<CreateRowResDto, CreateRowReqDto>({
             query: (body) => ({
                 url: `/outlay-rows/entity/${body.listId}/row/create`,
                 method: 'POST',
-                body: { ...emptyRow, parentId: body.parentId }
+                body: { ...body.row, parentId: body.parentId }
             }),
             async onQueryStarted(arg, { dispatch, queryFulfilled }) {
                 try {
                     const { data } = await queryFulfilled
                     dispatch(
                         infoListApi.util.updateQueryData('getInfoList', { listId: arg.listId }, (draft) => {
-                            const findRow = (list: InfoList) => {
+                            if (!arg.parentId) {
+                                Object.assign(draft, [{ ...data.current, child: [] }])
+                                return
+                            }
+
+                            const unshiftRow = (list: InfoList) => {
                                 for (const row of list) {
                                     if (row.id === arg.parentId) {
                                         row.child.unshift({ ...data.current, child: [] })
                                         return
                                     }
-                                    findRow(row.child)
+                                    unshiftRow(row.child)
                                 }
                             }
-                            findRow(draft)
+                            unshiftRow(draft)
+
+                            const updateRow = (list: InfoList, newRow: InfoRow) => {
+                                for (const row of list) {
+                                    if (row.id === newRow.id) {
+                                        Object.assign(row, { ...newRow, child: row.child })
+                                        return
+                                    }
+                                    updateRow(row.child, newRow)
+                                }
+                            }
+                            data.changed.forEach((newRow) => { updateRow(draft, newRow) })
                         })
                     )
                 } catch { }

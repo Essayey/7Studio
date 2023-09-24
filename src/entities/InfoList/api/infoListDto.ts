@@ -23,7 +23,8 @@ export interface UpdateRowResDto {
 
 export interface CreateRowReqDto {
     listId: number
-    parentId: number
+    parentId: number | null
+    row: InfoRow
 }
 
 export interface CreateRowResDto {

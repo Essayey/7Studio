@@ -9,7 +9,7 @@ export const emptyRow: Omit<InfoRow, 'child' | 'id' | 'total'> & { parentId: num
     parentId: null,
     mimExploitation: 0,
     overheads: 0,
-    rowName: 'string',
+    rowName: '',
     salary: 0,
     supportCosts: 0
 }

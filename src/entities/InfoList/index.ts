@@ -8,3 +8,6 @@ export {
 } from './api/InfoListApi'
 export type { InfoList, InfoRow } from './model/types/infoListTypes'
 export { selectCurrentListId } from './model/selectors/selectCurrentListId'
+export { getChildLength } from './lib/getChildLenght'
+export { emptyRow } from './lib/emptyRow'
+export { isDeepChild } from './lib/isDeepChild'
